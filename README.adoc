@@ -5,4 +5,5 @@ Espace documentaire.
 
 == Vidéos
 
-https://www.youtube.com/watch?v=wL9PcGu_xrA[Un tracker à la Solar Probe]
+* https://www.youtube.com/watch?v=wL9PcGu_xrA[Un tracker à la Solar Probe]
+* https://www.youtube.com/watch?v=ljTJqQYSJ8g[Cool DIY Solar Tracker Self Powered No Electronics - How it Works]
