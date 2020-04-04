@@ -1,0 +1,21 @@
+= Idées en vrac
+
+== Partie azimutale
+
+=== Double plateau avec roues
+
+Deux plateaux parallèles
+
+- celui reposant sur le sol avec des roues pointées vers le ciel
+- Celui sur lequel repose l'unité, posé sur les roues
+
+[source]
+----
+
+   / unité /
+==================
+[]roue ( )      []
+==================
+///// Sol //////
+
+----
