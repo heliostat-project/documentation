@@ -1,0 +1,48 @@
+= Prototype 01
+:toc:
+
+
+== Objectifs de ce document
+
+Décrire les principes de fonctionnement du prototype 01
+
+== Vocabulaire et sigles
+
+Unité::
+ Nom donnée à l'unité héliostatique
+ 
+RTC::
+ Real Time Component
+ 
+== Principes
+
+=== SR001 Utilisation des épéhémérides
+
+L'unité utilisera les éphémérides pour calculer la position du soleil
+
+=== SR002 Localisation
+
+La localisation sera considérée comme paramétrable et constante le temps d'utilisation de l'unité
+
+=== SR003 Position
+
+La position (orientation azimutale, déclinaison) de la base de l'unité sera acquise dynamique
+
+=== SR004 Temporalité
+
+La temporalité (date, instant) sera connue de l'unité
+
+== Composition
+
+=== Electronique
+
+- Une carte arduino
+- Un module RTC DS1307
+- Un module de position 3 axes (boussole, position)
+
+=== Mécanique
+
+- Utilisation monteur type azimutale
+- 2 moteurs avec encodeurs DC 6V-12V grande précision
+
+
