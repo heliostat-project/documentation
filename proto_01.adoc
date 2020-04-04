@@ -38,7 +38,7 @@ La temporalité (date, instant) sera connue de l'unité
 
 - Une carte arduino
 - Un module RTC DS1307
-- Un module de position 3 axes (boussole, position)
+- Un module de position 3 axes (boussole, position) comme celui-ci http://wiki.seeedstudio.com/Grove-3-Axis_Digitial_Compass_v2.0/
 
 === Mécanique
 
