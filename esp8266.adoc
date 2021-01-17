@@ -16,3 +16,4 @@ OK
 == Documentation
 
 * http://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/#AT+CWSAP
+* https://www.youtube.com/watch?v=SaVXwNzeJU4[ESP01 comme serveur WiFi]
