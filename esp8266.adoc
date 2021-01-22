@@ -13,6 +13,45 @@ OK
 ----
 
 
+== Programmation
+
+Brancher comme dans https://iot-playground.com/blog/2-uncategorised/35-esp8266-firmware-update
+La GPI0 uniquement pour charger.
+
+Pour exécuter le code chargé, **ne pas mettre le GPI0 à la masse** (débrancher GPI0)
+
+== Pour communiquer
+
+Code fonctionnant à **74880** bauds ( à 115200, il y pas mal de bouillie)
+
+----
+void setup(void)
+{
+
+    Serial.begin(74880);
+    Serial.print("SETUP");
+}
+
+void loop(void)
+{
+    delay(5000);
+    Serial.print(".");
+}
+----
+
+En cas de reset (ch_p débranché, rebranché) on obtient, à 74880
+
+----
+ ets Jan  8 2013,rst cause:1, boot mode:(3,7)
+
+load 0x4010f000, len 3584, room 16 
+tail 0
+chksum 0xb0
+csum 0xb0
+v2843a5ac
+~ld
+----
+
 == Documentation
 
 * http://room-15.github.io/blog/2015/03/26/esp8266-at-command-reference/#AT+CWSAP
