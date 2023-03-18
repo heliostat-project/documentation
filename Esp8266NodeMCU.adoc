@@ -1,0 +1,12 @@
+= ESP 8266 Node MCU
+
+Avec VSCode
+
+[source,ini]
+----
+
+[env:esp12e]
+platform = espressif8266
+board = esp12e
+framework = arduino
+----
