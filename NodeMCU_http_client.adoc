@@ -1,0 +1,87 @@
+= Node MCU comme client HTTP
+
+plateform.ini
+
+[source,ini]
+----
+[env:nodemcuv2]
+platform = espressif8266
+board = nodemcuv2
+framework = arduino
+----
+
+
+Code
+
+[source,c]
+----
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+#include "credentials.h"
+
+#define LED 2
+const char *URL = "http://10.0.0.73:8000/blink";
+
+WiFiClient client;
+int delay_ms = 1000;
+int wait_delay_ms = 1000;
+long last_time = 0;
+
+void setup()
+{
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  delay(1000);
+  pinMode(LED, OUTPUT);
+
+  Serial.println("Connecting to ");
+  Serial.println(ssid);
+
+  // connect to your local wi-fi network
+  WiFi.begin(ssid, password);
+
+  // check wi-fi is connected to wi-fi network
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+}
+
+void loop()
+{
+
+  // put your main code here, to run repeatedly:
+  if (WiFi.status() == WL_CONNECTED && millis() - last_time > 5000)
+  { // Check WiFi connection status
+    HTTPClient http;
+    last_time = millis();
+
+    http.begin(client, URL);   // Specify request destination
+    int httpCode = http.GET(); // Send the request
+
+    if (httpCode > 0)
+    {                                    // Check the returning code
+      String payload = http.getString(); // Get the request response payload
+      // Serial.println(payload);
+      delay_ms = payload.toInt();
+      wait_delay_ms = delay_ms; // Print the response payload
+    }
+    else
+    {
+      Serial.printf("[HTTP] GET... failed, error: %s\nurl: %s\n", http.errorToString(httpCode).c_str(), URL);
+    }
+
+    http.end(); // Close connection
+  }
+  digitalWrite(LED, HIGH);
+  // Serial.println("LED is on");
+  delay(delay_ms);
+  digitalWrite(LED, LOW);
+  // Serial.println("LED is off");
+  delay(wait_delay_ms);
+}
+----
